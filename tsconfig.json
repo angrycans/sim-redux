@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "src",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "esnext",
+      "es7",
+      "dom"
+    ],
+    "incremental": true,
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "paths": {
+      "@kits": [
+        "src/kits"
+      ],
+      "@config": [
+        "src/config"
+      ],
+      "@assets": [
+        "src/assets"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "./typings",
+    "./test/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
+}

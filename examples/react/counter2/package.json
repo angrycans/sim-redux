@@ -1,0 +1,29 @@
+{
+  "name": "counter",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts-ts": "3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "install": "node ./scripts/inject-sim-redux.js install",
+    "link": "rimraf -rf ./node_modules/sim-redux && node ./scripts/inject-sim-redux.js create-link",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.10",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.8.5",
+    "chalk": "^3.0.0",
+    "commander": "^4.1.0",
+    "fs-extra": "^8.1.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.4"
+  }
+}

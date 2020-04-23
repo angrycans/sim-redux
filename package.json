@@ -1,0 +1,65 @@
+{
+  "name": "sim-redux",
+  "version": "1.0.0",
+  "author": {
+    "name": "angrycans",
+    "email": "angrycans@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/angrycans/sim-redux/issues"
+  },
+  "deprecated": false,
+  "description": "simple redux react store actor computed",
+  "devDependencies": {
+    "@types/enzyme": "^3.1.15",
+    "@types/jest": "^23.3.10",
+    "@types/jsdom": "^12.2.1",
+    "@types/lodash": "^4.14.123",
+    "@types/react": "^16.7.18",
+    "@types/sinon": "^7.0.3",
+    "concurrently": "^4.1.0",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "immer": "^1.9.3",
+    "immutable": "^4.0.0-rc.12",
+    "jest": "^23.6.0",
+    "jsdom": "^13.1.0",
+    "lint-staged": "^8.1.0",
+    "npm": "^6.5.0",
+    "prettier": "^1.15.3",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "rimraf": "^2.6.2",
+    "typescript": "^3.7.4"
+  },
+  "homepage": "https://github.com/angrycans/sim-redux#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "license": "ISC",
+  "lint-staged": {
+    "src/**/*.{ts,tsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "main": "dist/index.js",
+  "miniprogram": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angrycans/sim-redux.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf -rf ./dist ./tsconfig.tsbuildinfo",
+    "prettier": "prettier --write \"{src,src2}/**/*.{ts,tsx,css,less,scass}\"",
+    "dev": "npm run clean&&tsc --pretty -w"
+  },
+  "dependencies": {
+    "history": "^4.9.0"
+  }
+}
