@@ -1,4 +1,4 @@
-import { createStore } from "sim-redux";
+import { createStore } from "./sim-redux";
 
 const logger = (store) => (next) => (action) => {
   console.log("current state", store.getState());
@@ -23,4 +23,4 @@ const defalutStates: IState = {
 
 const store = createStore(defalutStates, [logger]);
 
-export { store };
+export { store, defalutStates };

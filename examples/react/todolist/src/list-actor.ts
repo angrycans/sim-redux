@@ -1,10 +1,11 @@
-import { IStore } from "sim-redux";
+import { IStore } from "./sim-redux";
 import { IState } from "./store";
 import { produce } from "immer";
 
 const listActor = (store: IStore<IState>) => ({
   /** 初始化一条todo */
   init: async () => {
+    console.log("actor init");
     return new Promise((r) => {
       setTimeout(() => {
         const newState = produce(store.getState(), (draft) => {
@@ -31,7 +32,7 @@ const listActor = (store: IStore<IState>) => ({
   /** 完成一条 todo */
   done: (id: number) => {
     const newState = produce(store.getState(), (draft) => {
-      let item = draft.list.find((v) => v.id == id);
+      let item = draft.list.find((v) => v.id === id);
       //console.log("item", item);
       item.done = !item.done;
     });
@@ -41,7 +42,7 @@ const listActor = (store: IStore<IState>) => ({
   /** 删除一条 todo */
   del: (id: number) => {
     const newState = produce(store.getState(), (draft) => {
-      let idx = draft.list.findIndex((v) => v.id == id);
+      let idx = draft.list.findIndex((v) => v.id === id);
       draft.list.splice(idx, 1);
     });
     return newState;

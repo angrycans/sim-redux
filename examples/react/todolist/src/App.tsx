@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import { connect, withRedux, IProps } from "sim-redux";
+import { connect, withRedux, IProps } from "./sim-redux";
 
 import { IState, store } from "./store";
 import {

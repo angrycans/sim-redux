@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+// eslint-disable-next-line
 import App from "./App";
+import AppHook from "./App_hook";
+
 import * as serviceWorker from "./serviceWorker";
 
 // let s = [1];
@@ -10,10 +13,17 @@ import * as serviceWorker from "./serviceWorker";
 
 // console.log("s=", s);
 
+// ReactDOM.render(
+//   // <React.StrictMode>
+//   <App />,
+//   // </React.StrictMode>
+//   document.getElementById("root")
+// );
+
 ReactDOM.render(
   // <React.StrictMode>
-  <App />,
-  // </React.StrictMode>
+  <AppHook />,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 

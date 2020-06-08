@@ -265,6 +265,8 @@ label[for="toggle-all"] {
 
 .todo-count {
   float: left;
+  margin-left: 5px;
+
   text-align: left;
 }
 
