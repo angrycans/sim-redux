@@ -25,9 +25,8 @@ export type IProps<
   A extends (...args: any) => any = () => {},
   C extends (...args: any) => any = () => {}
 > = Partial<S> & {
-  actions?: Partial<ConvertUnion2Intersection<ReturnType<A>>> &
-    IDefaultActions<S>;
-} & Partial<ExtractMapWithFuncReturn<ConvertUnion2Intersection<ReturnType<C>>>>;
+  actions?: Partial<ReturnType<A>> & IDefaultActions<S>;
+} & Partial<ReturnType<C>>;
 
 // #################################### utils ####################################
 

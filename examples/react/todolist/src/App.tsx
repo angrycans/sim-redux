@@ -76,8 +76,13 @@ class App extends React.Component<IProps<IState, IlistActor, IlistComputed>> {
           </section>
         </section>
         <footer className="bottom">
-          <span className="todo-count">{this.props?.computedCount}</span>
-          <button className="clear-completed">Clear completed</button>
+          <span className="todo-count">{this.props.computedCount}</span>
+          <button
+            className="clear-completed"
+            onClick={() => this.props.actions.clear()}
+          >
+            Clear completed
+          </button>
         </footer>
       </div>
     );

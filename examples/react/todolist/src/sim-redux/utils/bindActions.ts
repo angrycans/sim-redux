@@ -25,6 +25,6 @@ export default function bindActions(
       return set(store, action(...args), name);
     };
   }
-
+  //  console.log("bound", bound);
   return bound;
 }

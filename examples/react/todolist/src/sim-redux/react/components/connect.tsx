@@ -42,7 +42,7 @@ class Connect extends React.PureComponent<IProps> {
     if (this.context.store.__DEV__) {
       console.group &&
         console.group(
-          "%cSim-Redux @connect",
+          "%cSim-Redux @connect store",
           "color:#2196F3",
           "@" + new Date().toISOString()
         );
@@ -118,7 +118,6 @@ class Connect extends React.PureComponent<IProps> {
       store: this.context.store,
       ...this.props,
       ...this.computed,
-      //...this.getComputed(),
       ...this.state,
       actions: { ...this.actions },
     });

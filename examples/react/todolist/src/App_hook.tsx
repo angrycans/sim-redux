@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { defalutStates } from "./store";
-import { createHookStore } from "./sim-redux/hook/createHookStore";
+import { createHookStore } from "./sim-redux";
 import { useEffect } from "react";
 
 import { listActor, listComputed } from "./list-actor";
@@ -28,12 +28,12 @@ const AppHooK = () => {
           className="new-todo"
           onKeyDown={(e) => {
             if (e.keyCode === 13) {
-              dispatch((a) => a.add, store.edittext);
+              dispatch("add", store.edittext);
               //this.props.actions.add(this.props.edittext);
             }
           }}
           onChange={(e) => {
-            dispatch((a) => a.edit, e.target.value);
+            dispatch("edit", e.target.value);
             //this.props.actions.edit(e.target.value);
           }}
           placeholder="What needs to be done?"
@@ -53,7 +53,7 @@ const AppHooK = () => {
                       checked={v["done"]}
                       onChange={() => {
                         //this.props.actions.done(v.id);
-                        dispatch((a) => a.done, v.id);
+                        dispatch("done", v.id);
                       }}
                     />
                     <label
@@ -63,9 +63,10 @@ const AppHooK = () => {
                     </label>
                     <button
                       className="destroy"
-                      onClick={() => {
+                      onClick={async () => {
                         //this.props.actions.del(v.id);
-                        dispatch((a) => a.del, v.id);
+                        let ret = await dispatch("del", v.id);
+                        console.log(ret);
                       }}
                     />
                   </div>
@@ -75,11 +76,8 @@ const AppHooK = () => {
         </section>
       </section>
       <footer className="bottom">
-        <span className="todo-count">{(store as any).computedCount}</span>
-        <button
-          className="clear-completed"
-          onClick={() => dispatch((a) => a.clear)}
-        >
+        <span className="todo-count">{store.computedCount}</span>
+        <button className="clear-completed" onClick={() => dispatch("clear")}>
           Clear completed
         </button>
       </footer>
