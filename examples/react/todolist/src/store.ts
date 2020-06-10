@@ -14,11 +14,13 @@ export interface ITodo {
 export interface IState {
   edittext: string;
   list: ITodo[];
+  title: string;
 }
 
 const defalutStates: IState = {
   edittext: "",
   list: [],
+  title: "hello",
 };
 
 const store = createStore(defalutStates, [logger]);

@@ -3,6 +3,14 @@ import { IState } from "./store";
 import { produce } from "immer";
 
 const listActor = (store: IStore<IState>) => ({
+  addtile: () => {
+    const newState = produce(store.getState(), (draft) => {
+      draft.title = draft.title + "1";
+    });
+
+    // return newState;
+    return { title: store.getState().title + "1" };
+  },
   /** 初始化一条todo */
   init: async () => {
     console.log("actor init");

@@ -12,23 +12,39 @@ const { useStore, dispatch } = createHookStore(
   listComputed
 );
 
+const TitleText = () => {
+  const { title } = useStore(["title"]);
+  console.log("title", title);
+
+  return <div onClick={() => dispatch("addtile")}>{title}</div>;
+};
+
 const AppHooK = () => {
   useEffect(() => {
     dispatch("init");
   }, []);
-  const store = useStore((S) => S);
-  console.log("AppHooK store", store);
+  const { list, edittext, computedCount } = useStore([
+    "list",
+    "edittext",
+    "computedCount",
+  ]);
+
+  // const { list, edittext, computedCount } = useStore();
+  console.log("AppHooK store");
   return (
     <div className="wrapper">
       <header className="top">
-        <h1>Todo List</h1>
+        <h1>
+          Todo List
+          <TitleText />
+        </h1>
 
         <input
-          value={store.edittext}
+          value={edittext}
           className="new-todo"
           onKeyDown={(e) => {
             if (e.keyCode === 13) {
-              dispatch("add", store.edittext);
+              dispatch("add", edittext);
               //this.props.actions.add(this.props.edittext);
             }
           }}
@@ -43,8 +59,8 @@ const AppHooK = () => {
       <section className="center">
         <section className="">
           <ul className="todo-list">
-            {store.list &&
-              store.list.map((v, k) => (
+            {list &&
+              list.map((v, k) => (
                 <li key={v.id}>
                   <div className="view">
                     <input
@@ -76,7 +92,7 @@ const AppHooK = () => {
         </section>
       </section>
       <footer className="bottom">
-        <span className="todo-count">{store.computedCount}</span>
+        <span className="todo-count">{computedCount}</span>
         <button className="clear-completed" onClick={() => dispatch("clear")}>
           Clear completed
         </button>
