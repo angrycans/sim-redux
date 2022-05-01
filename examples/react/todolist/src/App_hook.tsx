@@ -92,7 +92,7 @@ const AppHooK = () => {
         </section>
       </section>
       <footer className="bottom">
-        <span className="todo-count">{computedCount}</span>
+        {/* <span className="todo-count">{computedCount}</span> */}
         <button className="clear-completed" onClick={() => dispatch("clear")}>
           Clear completed
         </button>

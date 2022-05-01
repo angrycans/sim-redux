@@ -4,9 +4,6 @@ export type IStore<S = {}> = Readonly<{
   setState(f: Function | object, actionname?: string): void;
   subscribe<F extends Function>(f: F): (f: F) => void;
   getState(): S;
-  save(): S;
-  restore(): S;
-  openCache(): void;
   defaultState: S;
   __DEV__: boolean;
 }>;
@@ -27,19 +24,19 @@ export type IProps<
   S = {},
   A extends (...args: any) => any = () => {},
   C extends (...args: any) => any = () => {}
-> = Partial<S> & {
-  actions?: Partial<ConvertUnion2Intersection<ReturnType<A>>> &
+  > = Partial<S> & {
+    actions?: Partial<ConvertUnion2Intersection<ReturnType<A>>> &
     IDefaultActions<S>;
-} & Partial<ExtractMapWithFuncReturn<ConvertUnion2Intersection<ReturnType<C>>>>;
+  } & Partial<ExtractMapWithFuncReturn<ConvertUnion2Intersection<ReturnType<C>>>>;
 
 // #################################### utils ####################################
 
 type ExtractMapWithFuncReturn<T extends any> = T extends any
-  ? { [K in keyof T]?: ReturnType<T[K]> }
+  ? { [K in keyof T]?: ReturnType<any> }
   : never;
 export type ConvertUnion2Intersection<T> = (T extends any
-? (param: T) => any
-: never) extends (param: infer I) => any
+  ? (param: T) => any
+  : never) extends (param: infer I) => any
   ? I
   : never;
 

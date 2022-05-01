@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,7 +20,6 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-
     "sourceMap": true,
     "noImplicitReturns": false,
     "noImplicitThis": false,
@@ -26,5 +29,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

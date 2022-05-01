@@ -15,17 +15,10 @@ export default function bindActions(
       return store.defaultState;
     },
   };
-  let bound = {
-    save() {
-      return Promise.resolve(store.save());
-    },
-    restore() {
-      return Promise.resolve(store.restore());
-    },
-  };
+  let bound = {};
   for (let name in actions) {
     bound[name] = (...args: any[]) => {
-      const action = actions[name].bind(actions);
+      const action: any = actions[name].bind(actions);
       if (typeof store.middleware === "function") {
         return store.middleware()(store, action, args, name);
       }

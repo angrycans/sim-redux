@@ -1,0 +1,1 @@
+{"version":3,"file":"propsValidation.js","sourceRoot":"","sources":["../../src/utils/propsValidation.ts"],"names":[],"mappings":";;AAAA,SAAwB,eAAe,CACrC,KAAU,EACV,QAAgB,EAChB,aAAqB;IAErB,IAAI,OAAO,KAAK,KAAK,QAAQ,EAAE;QAC7B,OAAO,IAAI,CAAA;KACZ;IACD,OAAO,IAAI,KAAK,CAAC,uBAAgB,QAAQ,0BAAgB,aAAa,CAAE,CAAC,CAAA;AAC3E,CAAC;AATD,kCASC"}

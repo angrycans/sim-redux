@@ -69,9 +69,9 @@ class Connect extends React.PureComponent<IProps> {
     const state = (this.context.store && this.context.store.getState()) || {};
     return mapToProps
       ? mapToProps.reduce(
-          (result, key) => ((result[key] = state[key]), result),
-          {}
-        )
+        (result, key) => ((result[key] = state[key]), result),
+        {}
+      )
       : state;
   }
 
@@ -154,7 +154,7 @@ function connect<S = {}>(opts: IOpts): any;
  * 注入属性、方法到组件 props
  * @param { IFunc | IOpts } opts 传入此参数时，注入给定属性到 props，不传入时，默认注入所有属性
  */
-function connect(
+function connect<S = any, P = any>(
   param: IFunc | IOpts | string[],
   _actor?: IFunc,
   _computed?: IFunc
@@ -202,32 +202,49 @@ function connect(
   //   actions = param.actor || actions;
   //   computed = param.computed || computed;
   // }
-  return function (target) {
-    return hocconnect(state, actions, computed)(target);
-  };
-}
+  // return function (target) {
+  //   return hocconnect(state, actions, computed)(target);
+  // };
 
-const hocconnect = (mapToProps: string[], actions = null, computed = null) => {
-  return (Child) => {
-    return class extends React.PureComponent {
-      constructor(props) {
-        super(props);
-      }
+  return (Child: any) =>
+    class ConnectWrapper extends React.Component<P> {
       render() {
         const { props } = this;
+
         return (
-          <Connect
-            {...props}
-            mapToProps={mapToProps}
+          <Connect {...props}
+            mapToProps={state}
             actions={actions}
-            computed={computed}
-          >
+            computed={computed}>
             {(mappedProps: object) => <Child {...mappedProps} {...props} />}
           </Connect>
         );
       }
+
     };
-  };
-};
+}
+
+// const hocconnect<> = (mapToProps: string[], actions = null, computed = null) => {
+//   return (Child: any) => {
+//     class ConnectWrapper extends React.Component<P> {
+//       constructor(props) {
+//         super(props);
+//       }
+//       render() {
+//         const { props } = this;
+//         return (
+//           <Connect
+//             {...props}
+//             mapToProps={mapToProps}
+//             actions={actions}
+//             computed={computed}
+//           >
+//             {(mappedProps: object) => <Child {...mappedProps} {...props} />}
+//           </Connect>
+//         );
+//       }
+//     };
+//   };
+// };
 
 export default connect;
