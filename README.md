@@ -1,10 +1,16 @@
 ### update
+## v1.5.0 
+1. react update
+2. example/todolist update
 
-v1.0.0 add computed and update readme
-add example/react/todolist
-update example/counter1 example/counter2
+## v1.0.0 
+1. add computed and update readme
+2. add example/react/todolist
+3. update example/counter1 example/counter2
 
-# sim-redux
+# sim-redux install
+
+npm i -S sim-redux
 
 ```typescript
 1.store.ts
